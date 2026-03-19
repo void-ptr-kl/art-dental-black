@@ -1,0 +1,684 @@
+/* Goldener Infotext für spezielle Abschnitte */
+.goldInfo {
+    color: #bfa26f;
+    font-weight: 700;
+    font-size: 1.45rem;
+    text-shadow: 0 2px 12px rgba(255,255,255,0.18), 0 1px 8px rgba(0,0,0,0.08);
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+    background-image:
+        linear-gradient(180deg, rgba(252, 251, 249, 0.26) 0%, rgba(252, 251, 249, 0.14) 50%, rgba(246, 242, 236, 0.32) 100%),
+        url("/site-background-v2.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@media (prefers-color-scheme: dark) {
+    .container {
+        background-image:
+            linear-gradient(180deg, rgba(2, 6, 23, 0.54) 0%, rgba(2, 6, 23, 0.64) 50%, rgba(2, 6, 23, 0.76) 100%),
+            url("/site-background-v2.png");
+    }
+}
+
+/* Background Glow */
+.glowBlob1,
+.glowBlob2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite alternate;
+}
+
+.glowBlob1 {
+    top: 10%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: var(--secondary);
+}
+
+.glowBlob2 {
+    bottom: -20%;
+    left: -20%;
+    width: 60vw;
+    height: 60vw;
+    background: var(--primary-glow);
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-5%, -10%) scale(1.1);
+    }
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 96px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 2.5%;
+    z-index: 100;
+    border-bottom: 1px solid rgba(159, 127, 68, 0.34);
+    backdrop-filter: blur(16px) saturate(130%);
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.header_luxury {
+    background: linear-gradient(110deg, rgba(223, 194, 140, 0.6) 0%, rgba(186, 150, 82, 0.5) 52%, rgba(20, 20, 20, 0.4) 100%);
+    border-bottom: 1px solid rgba(146, 108, 53, 0.42);
+    box-shadow:
+        0 14px 28px -20px rgba(10, 10, 10, 0.4),
+        0 6px 16px -14px rgba(89, 58, 17, 0.34);
+}
+
+.header_luxury::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(1200px 180px at -10% -70%, rgba(255, 244, 214, 0.36), transparent 58%),
+        radial-gradient(900px 180px at 95% -75%, rgba(0, 0, 0, 0.24), transparent 62%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.header_luxury::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 243, 216, 0.88), rgba(255, 239, 204, 0.35), rgba(255, 243, 216, 0.88));
+    pointer-events: none;
+}
+
+.header_clinic {
+    background: linear-gradient(100deg, rgba(223, 194, 140, 0.88), rgba(196, 160, 98, 0.85));
+    border-bottom: 1px solid rgba(146, 108, 53, 0.45);
+    box-shadow: 0 14px 28px -20px rgba(36, 24, 7, 0.4);
+}
+
+.header_bold {
+    background: linear-gradient(95deg, rgba(208, 175, 116, 0.92), rgba(171, 131, 69, 0.9));
+    border-bottom: 1px solid rgba(120, 88, 44, 0.45);
+    box-shadow: 0 16px 32px -20px rgba(70, 44, 11, 0.5);
+}
+
+.brandWrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brandLogo {
+    width: clamp(180px, 22vw, 300px);
+    height: auto;
+    display: block;
+    object-fit: cover;
+    object-position: top;
+    clip-path: inset(0 0 2% 0);
+}
+
+.brandText {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.brandText_luxury {
+    gap: 0.05rem;
+}
+
+.brandText_clinic {
+    gap: 0.18rem;
+}
+
+.brandText_bold {
+    gap: 0.12rem;
+}
+
+.brandTitle {
+    font-size: clamp(1.4rem, 1rem + 1.6vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #111111;
+}
+
+.brandTitle_luxury {
+    font-family: "Times New Roman", Georgia, serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-transform: none;
+}
+
+.brandTitle_clinic {
+    letter-spacing: -0.01em;
+    font-weight: 800;
+}
+
+.brandTitle_bold {
+    color: #111111;
+    font-size: clamp(1.5rem, 1.05rem + 1.9vw, 2.8rem);
+    letter-spacing: -0.04em;
+}
+
+.brandTagline {
+    margin-top: 0.3rem;
+    font-size: clamp(0.75rem, 0.65rem + 0.35vw, 1rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #111111;
+    opacity: 0.92;
+}
+
+.brandTagline_luxury {
+    margin-top: 0.42rem;
+    color: #111111;
+    opacity: 0.95;
+    letter-spacing: 0.11em;
+    font-size: clamp(0.78rem, 0.68rem + 0.35vw, 1.02rem);
+    font-weight: 700;
+}
+
+.brandTagline_clinic {
+    color: #111111;
+    font-weight: 700;
+}
+
+.brandTagline_bold {
+    color: #111111;
+    opacity: 1;
+    letter-spacing: 0.09em;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.centerLogoLink {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(191, 162, 111, 0.38);
+    box-shadow: 0 14px 26px -18px rgba(15, 23, 42, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.55) inset;
+    transition: transform var(--transition-short), box-shadow var(--transition-short);
+}
+
+.centerLogoLink:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 16px 28px -16px rgba(15, 23, 42, 0.62), 0 0 0 2px rgba(255, 255, 255, 0.65) inset;
+}
+
+.centerLogoImage {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.navLink {
+    font-weight: 500;
+    color: #111111;
+    transition: color var(--transition-short), transform var(--transition-short);
+    font-size: clamp(0.95rem, 0.88rem + 0.18vw, 1.04rem);
+    letter-spacing: 0.02em;
+    position: relative;
+    padding: 0.35rem 0.08rem;
+    border-radius: 0;
+    border: none;
+    line-height: 1;
+}
+
+.navLinkActive {
+    color: #000000;
+}
+
+.navLinkActive::after {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+}
+
+.navLink::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.28rem;
+    width: 72%;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #9f7f44, #c9a96d, #9f7f44);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    opacity: 0;
+    transition: transform var(--transition-short), opacity var(--transition-short);
+}
+
+.navLink:hover {
+    color: #000000;
+    transform: translateY(-1px);
+}
+
+.navLink:hover::after {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+}
+
+.header_luxury .navLink {
+    font-size: clamp(0.95rem, 0.88rem + 0.18vw, 1.04rem);
+    font-weight: 600;
+    color: #111111;
+    letter-spacing: 0.015em;
+    text-transform: none;
+}
+
+.header_luxury .navLink:hover {
+    color: #000000;
+}
+
+.header_luxury .navLink::after {
+    background: linear-gradient(90deg, #9f7f44, #d6bc87, #9f7f44);
+}
+
+.navLink:focus-visible {
+    outline: none;
+    color: #000000;
+}
+
+.navLink:focus-visible::after {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+}
+
+/* Main Content */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: calc(96px + 3.25rem);
+    padding: 0 2.5%;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero {
+    text-align: center;
+    max-width: 980px;
+    margin: 2rem 0 4rem;
+    padding: 2.2rem 2rem;
+    border-radius: 1.5rem;
+    background: rgba(248, 250, 252, 0.78);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 20px 36px -28px rgba(15, 23, 42, 0.45);
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #0f172a;
+    line-height: 1.6;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+
+/* Services Grid */
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+.serviceCard {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    min-height: 380px;
+    padding: 1.2rem 1rem;
+    box-shadow: 0 8px 24px -8px rgba(0,0,0,0.14);
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+}
+
+.serviceCard h3, .serviceCard p, .serviceCard ul, .serviceCard li {
+    color: #222;
+    text-shadow: 0 1px 8px rgba(255,255,255,0.18);
+}
+
+.serviceCard:hover {
+    transform: translateY(-6px) scale(1.03);
+    border-color: rgba(14, 165, 233, 0.18);
+    box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.13), 0 0 10px var(--primary-glow);
+}
+
+.serviceImage {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(56, 189, 248, 0.04));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.servicePhoto {
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.serviceCard:hover .servicePhoto {
+    transform: scale(1.03);
+}
+
+.serviceContent {
+    padding: 1.5rem 1.6rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.serviceContent h3 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+    color: var(--primary);
+    line-height: 1.2;
+}
+
+.serviceContent p {
+    color: var(--text-secondary);
+    line-height: 1.62;
+    margin-bottom: 0.5rem;
+    font-size: 0.97rem;
+    text-wrap: pretty;
+}
+
+.serviceList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.serviceList li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+.serviceList li::before {
+    content: "✓";
+    color: var(--success);
+    font-weight: 800;
+    background: rgba(16, 185, 129, 0.1);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+
+.videoSection {
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+.videoContainer {
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    background: rgba(248, 250, 252, 0.78);
+    box-shadow: 0 20px 36px -28px rgba(15, 23, 42, 0.45);
+}
+
+.videoContainer h2 {
+    text-align: center;
+    font-size: clamp(2rem, 3vw, 2.7rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.laborVideo {
+    width: 100%;
+    height: min(72vh, 760px);
+    border-radius: 1.1rem;
+    display: block;
+    object-fit: cover;
+    box-shadow: 0 24px 36px -22px rgba(15, 23, 42, 0.55);
+}
+
+/* CTA Section */
+.ctaSection {
+    width: 100%;
+    margin-bottom: 8rem;
+}
+
+.ctaContainer {
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: var(--radius-lg);
+    background: rgba(248, 250, 252, 0.78);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    box-shadow: 0 20px 36px -28px rgba(15, 23, 42, 0.45);
+}
+
+.ctaContainer h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.ctaContainer p {
+    font-size: 1.1rem;
+    color: #0f172a;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+
+.primaryButton {
+    background: var(--primary);
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all var(--transition-normal);
+    display: inline-flex;
+    box-shadow: 0 8px 20px -6px var(--primary);
+}
+
+.primaryButton:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px -8px var(--primary);
+}
+
+/* Footer (Shared styles can be refactored later) */
+.footer {
+    width: 100%;
+    padding: 2rem 5%;
+    border-top: 1px solid rgba(148, 163, 184, 0.38);
+    background: rgba(2, 6, 23, 0.58);
+    backdrop-filter: blur(8px);
+    margin-top: auto;
+}
+
+.footerContent {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+}
+
+.footerLinks {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footerLinks a {
+    color: #f8fafc;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.footerLinks a:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .container {
+        background-attachment: scroll;
+        background-position: center top;
+    }
+
+    .header {
+        height: auto;
+        min-height: 92px;
+        padding: 0.8rem 1rem;
+    }
+
+    .brandWrap {
+        gap: 0.65rem;
+    }
+
+    .brandLogo {
+        width: 150px;
+    }
+
+    .brandTitle {
+        font-size: 1.05rem;
+    }
+
+    .brandTagline {
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+    }
+
+    .brandTitle_bold {
+        font-size: 1.18rem;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .centerLogoLink {
+        width: 58px;
+        height: 58px;
+        right: 1rem;
+        left: auto;
+        transform: translate(0, -50%);
+    }
+
+    .centerLogoLink:hover {
+        transform: translate(0, -50%) scale(1.04);
+    }
+
+    .centerLogoImage {
+        width: 48px;
+        height: 48px;
+    }
+
+    .main {
+        margin-top: 8.5rem;
+    }
+
+    .servicesGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .serviceCard {
+        min-height: auto;
+    }
+
+    .serviceImage {
+        height: 240px;
+    }
+
+    .serviceContent {
+        padding: 1.5rem;
+    }
+
+    .videoContainer {
+        padding: 1.2rem;
+    }
+
+    .laborVideo {
+        height: min(52vh, 420px);
+    }
+}
+
+
