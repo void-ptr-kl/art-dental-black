@@ -9,7 +9,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Art-Dental-Labor | Premium Zahntechnik",
-  description: "Ihr Partner fuer digitale und analoge Zahntechnik. DSGVO-konformer Upload fuer Intraoralscans und Patientendaten.",
+  description: "Ihr Partner für digitale und analoge Zahntechnik. DSGVO-konformer Upload für Intraoralscans und Patientendaten.",
 };
 
 export default function RootLayout({

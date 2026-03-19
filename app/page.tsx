@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function Home() {
   const headerOptions = {
-    luxury: { tagline: "Praezision in meisterlicher Handarbeit" },
-    clinic: { tagline: "Klare Prozesse fuer moderne Praxen" },
+    luxury: { tagline: "Präzision in meisterlicher Handarbeit" },
+    clinic: { tagline: "Klare Prozesse für moderne Praxen" },
     bold: { tagline: "Digitale Zahntechnik mit Charakter" },
   } as const;
   const activeHeader: keyof typeof headerOptions = "luxury";
@@ -50,6 +50,14 @@ export default function Home() {
           <Link href="/leistungen" className={styles.navLink}>Leistungen</Link>
           <Link href="/kontakt" className={styles.navLink}>Kontakt & Upload</Link>
         </nav>
+        <details className={styles.mobileMenu}>
+          <summary className={styles.mobileMenuButton}>Menü</summary>
+          <div className={styles.mobileMenuPanel}>
+            <Link href="/" className={`${styles.mobileMenuLink} ${styles.mobileMenuLinkActive}`}>Startseite</Link>
+            <Link href="/leistungen" className={styles.mobileMenuLink}>Leistungen</Link>
+            <Link href="/kontakt" className={styles.mobileMenuLink}>Kontakt & Upload</Link>
+          </div>
+        </details>
       </header>
 
       <main className={styles.main}>
@@ -59,17 +67,17 @@ export default function Home() {
             DSGVO-Konform & Sicher
           </div>
           <h1 className={styles.title}>
-            Praezision fuer <span className="text-gradient">Ihre Zaehne</span>
+            Präzision für <span className="text-gradient">Ihre Zähne</span>
           </h1>
           <p className={styles.goldInfo}>
-            Von komplexer Implantatprothetik bis zu praezisem 3D-Druck: Wir bieten ein umfassendes Spektrum modernster zahntechnischer Loesungen.
+            Von komplexer Implantatprothetik bis zu präzisem 3D-Druck: Wir bieten ein umfassendes Spektrum modernster zahntechnischer Lösungen.
           </p>
           <p className={styles.goldInfo}>
-            Senden Sie uns einfach Ihren Intraoralscan ueber unser sicheres und DSGVO-konformes Upload-Portal.
+            Senden Sie uns einfach Ihren Intraoralscan über unser sicheres und DSGVO-konformes Upload-Portal.
           </p>
           <div className={styles.actions}>
             <Link href="/kontakt" className={styles.primaryButton}>
-              Fall uebermitteln
+              Fall übermitteln
               <svg className={styles.btnIcon} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
             </Link>
             <Link href="/leistungen" className={styles.secondaryButton}>
@@ -81,11 +89,11 @@ export default function Home() {
         <section className={styles.stats}>
           <div className={styles.statItem}>
             <h2>100% Sicher</h2>
-            <p>Mehrstufig geschuetzt</p>
+            <p>Mehrstufig geschützt</p>
           </div>
           <div className={styles.statItem}>
             <h2>Schnell</h2>
-            <p>Verschluesselte Uebertragung</p>
+            <p>Verschlüsselte Übertragung</p>
           </div>
           <div className={styles.statItem}>
             <h2>DSGVO-Konform</h2>
@@ -101,14 +109,14 @@ export default function Home() {
           <div className={styles.featureGrid}>
             <div className={`glass ${styles.featureCard}`} data-bg="1">
               <div className={styles.featureContent}>
-                <h3>Hoechste Praezision</h3>
-                <p>Modernste CAD/CAM-Technik und 3D-Druck garantieren mikrometergenaue Passungen fuer jeden Fall.</p>
+                <h3>Höchste Präzision</h3>
+                <p>Modernste CAD/CAM-Technik und 3D-Druck garantieren mikrometergenaue Passungen für jeden Fall.</p>
               </div>
             </div>
             <div className={`glass ${styles.featureCard}`} data-bg="2">
               <div className={styles.featureContent}>
                 <h3>Sicherer Workflow</h3>
-                <p>Vollstaendig verschluesselter Datenaustausch fuer Scans und Patientendaten gemaess europaeischen Richtlinien.</p>
+                <p>Vollständig verschlüsselter Datenaustausch für Scans und Patientendaten gemäß europäischen Richtlinien.</p>
               </div>
             </div>
             <div className={`glass ${styles.featureCard}`} data-bg="3">
@@ -128,7 +136,7 @@ export default function Home() {
             <div className={`glass ${styles.step}`}>
               <div className={styles.stepNumber}>1</div>
               <h3>Scan erstellen</h3>
-              <p>Fuehren Sie den Intraoralscan in Ihrer Praxis durch.</p>
+              <p>Führen Sie den Intraoralscan in Ihrer Praxis durch.</p>
             </div>
             <div className={styles.stepDivider}>
               <div className={styles.dividerLine}></div>
@@ -136,7 +144,7 @@ export default function Home() {
             <div className={`glass ${styles.step}`}>
               <div className={styles.stepNumber}>2</div>
               <h3>Upload starten</h3>
-              <p>Laden Sie die STL-Dateien sicher ueber unser Portal hoch.</p>
+              <p>Laden Sie die STL-Dateien sicher über unser Portal hoch.</p>
             </div>
             <div className={styles.stepDivider}>
               <div className={styles.dividerLine}></div>
@@ -144,7 +152,7 @@ export default function Home() {
             <div className={`glass ${styles.step}`}>
               <div className={styles.stepNumber}>3</div>
               <h3>Labor fertigt</h3>
-              <p>Wir designen und produzieren Ihren Fall mit Praezision.</p>
+              <p>Wir designen und produzieren Ihren Fall mit Präzision.</p>
             </div>
             <div className={styles.stepDivider}>
               <div className={styles.dividerLine}></div>

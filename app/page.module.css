@@ -234,6 +234,57 @@
   gap: 1.25rem;
 }
 
+.mobileMenu {
+  display: none;
+}
+
+.mobileMenuButton {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(191, 162, 111, 0.45);
+  color: #111111;
+  font-weight: 700;
+  box-shadow: 0 12px 24px -18px rgba(15, 23, 42, 0.45);
+  cursor: pointer;
+}
+
+.mobileMenuButton::-webkit-details-marker {
+  display: none;
+}
+
+.mobileMenuPanel {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(191, 162, 111, 0.35);
+  box-shadow: 0 22px 40px -24px rgba(15, 23, 42, 0.55);
+}
+
+.mobileMenuLink {
+  display: block;
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.85rem;
+  color: #111111;
+  font-weight: 600;
+}
+
+.mobileMenuLinkActive {
+  background: rgba(191, 162, 111, 0.16);
+}
+
 .centerLogoLink {
   position: absolute;
   left: 50%;
@@ -868,17 +919,21 @@
 @media (max-width: 900px) {
   .steps {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 0;
+    max-width: 560px;
+    margin: 0 auto;
   }
 
   .step {
-    flex: 1;
+    flex: none;
     width: 100%;
     flex-direction: row;
     text-align: left;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: 1rem;
+    padding: 1.35rem 1.2rem;
   }
 
   .step p {
@@ -910,6 +965,7 @@
     height: auto;
     min-height: 92px;
     padding: 0.8rem 1rem;
+    overflow: visible;
   }
 
   .brandWrap {
@@ -937,25 +993,58 @@
     display: none;
   }
 
+   .mobileMenu {
+    position: relative;
+    display: block;
+    margin-left: auto;
+  }
+
   .centerLogoLink {
-    width: 58px;
-    height: 58px;
-    right: 1rem;
-    left: auto;
-    transform: translate(0, -50%);
-  }
-
-  .centerLogoLink:hover {
-    transform: translate(0, -50%) scale(1.04);
-  }
-
-  .centerLogoImage {
-    width: 48px;
-    height: 48px;
+    display: none;
   }
 
   .main {
     margin-top: 8.5rem;
+  }
+
+  .hero {
+    margin: 3.5rem 0 4.5rem;
+    padding: 2.25rem 1.25rem;
+    border-radius: 1.5rem;
+  }
+
+  .title {
+    font-size: clamp(2.6rem, 11vw, 3.7rem);
+  }
+
+  .goldInfo {
+    font-size: 1.08rem;
+    line-height: 1.7;
+  }
+
+  .steps {
+    max-width: 100%;
+  }
+
+  .step {
+    padding: 1.15rem 1rem;
+    border-radius: 1.35rem;
+  }
+
+  .stepNumber {
+    width: 2.7rem;
+    height: 2.7rem;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+
+  .step h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .step p {
+    font-size: 0.94rem;
   }
 
   .workflowTitle {

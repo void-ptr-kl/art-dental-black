@@ -7,8 +7,8 @@ import Script from "next/script";
 
 export default function KontaktPage() {
     const headerOptions = {
-        luxury: { tagline: "Praezision in meisterlicher Handarbeit" },
-        clinic: { tagline: "Klare Prozesse fuer moderne Praxen" },
+        luxury: { tagline: "Präzision in meisterlicher Handarbeit" },
+        clinic: { tagline: "Klare Prozesse für moderne Praxen" },
         bold: { tagline: "Digitale Zahntechnik mit Charakter" },
     } as const;
     const activeHeader: keyof typeof headerOptions = "luxury";
@@ -68,10 +68,8 @@ export default function KontaktPage() {
                 />
             )}
 
-            {/* Abstract Backgrounds */}
             <div className={styles.glowBlob1}></div>
 
-            {/* Modern Header (Same as Home for consistency) */}
             <header className={`glass ${styles.header} ${styles[`header_${activeHeader}`]}`}>
                 <div className={styles.brandWrap}>
                     <Image
@@ -105,6 +103,14 @@ export default function KontaktPage() {
                     <Link href="/leistungen" className={styles.navLink}>Leistungen</Link>
                     <Link href="/kontakt" className={styles.navLink}>Kontakt & Upload</Link>
                 </nav>
+                <details className={styles.mobileMenu}>
+                    <summary className={styles.mobileMenuButton}>Menü</summary>
+                    <div className={styles.mobileMenuPanel}>
+                        <Link href="/" className={styles.mobileMenuLink}>Startseite</Link>
+                        <Link href="/leistungen" className={styles.mobileMenuLink}>Leistungen</Link>
+                        <Link href="/kontakt" className={`${styles.mobileMenuLink} ${styles.mobileMenuLinkActive}`}>Kontakt & Upload</Link>
+                    </div>
+                </details>
             </header>
 
             <main className={styles.main}>
@@ -148,7 +154,7 @@ export default function KontaktPage() {
                                 <div className={styles.uploadIcon}>
                                     <Image
                                         src="/upload-dropzone.jpg"
-                                        alt="Daten fuer Zahntechnik hochladen"
+                                        alt="Daten für Zahntechnik hochladen"
                                         width={640}
                                         height={360}
                                         className={styles.uploadImage}
@@ -194,15 +200,14 @@ export default function KontaktPage() {
                             <span>DSGVO-Konform & Sicher</span>
                         </div>
                         {status === "success" && (
-                            <div className={styles.successMessage}>✅ {message}</div>
+                            <div className={styles.successMessage}>Erfolgreich: {message}</div>
                         )}
                         {status === "error" && (
-                            <div className={styles.errorMessage}>❌ {message}</div>
+                            <div className={styles.errorMessage}>Fehler: {message}</div>
                         )}
                     </form>
                 </div>
 
-                {/* Google Maps Location */}
                 <div className={`glass ${styles.mapContainer}`}>
                     <h2>So finden Sie uns</h2>
                     <p>Kleinfeldele 24, 79379 Müllheim im Markgräflerland</p>
@@ -222,6 +227,3 @@ export default function KontaktPage() {
         </div>
     );
 }
-
-
-
