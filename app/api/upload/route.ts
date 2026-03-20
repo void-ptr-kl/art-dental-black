@@ -18,6 +18,10 @@ const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/sit
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
 const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
 
+function hasPersistentUploadStorage(): boolean {
+    return process.env.VERCEL !== "1";
+}
+
 function getEncryptionKeyBuffer(): Buffer {
     if (!ENCRYPTION_KEY || !HEX_256_KEY_PATTERN.test(ENCRYPTION_KEY)) {
         throw new Error("ENCRYPTION_KEY must be configured as a 64-character hex string.");
@@ -194,6 +198,15 @@ export async function POST(req: NextRequest) {
             console.log(`[Contact] ${name} (${email}): ${message}`);
             await sendNotificationEmail(name, email, message);
             return NextResponse.json({ success: true, message: "Nachricht erfolgreich gesendet." });
+        }
+
+        if (!hasPersistentUploadStorage()) {
+            return NextResponse.json(
+                {
+                    error: "Datei-Uploads sind in der aktuellen Online-Version voruebergehend deaktiviert. Bitte senden Sie uns zunaechst eine Nachricht ohne Anhang."
+                },
+                { status: 503 }
+            );
         }
 
         if (file.size <= 0 || file.size > MAX_FILE_BYTES) {
